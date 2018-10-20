@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.brands h2, .new-arrivals .header {
+  margin-bottom: 30Px;
+  border-bottom: 1Px solid #F2F2F2; }
+
+.promotional, .brands, .new-arrivals {
+  border-bottom: 3Px solid #F2F2F2;
+  margin-bottom: 50Px;
+  padding-bottom: 30Px; }
+  .promotional h2, .brands h2, .new-arrivals h2 {
+    font-size: 3rem;
+    font-weight: 300;
+    color: #747474;
+    line-height: 1em; }
+
+body {
+  font: 400 14Px/18Px 'Open Sans', sans-serif; }
+
+.site-column {
+  max-width: 1200Px;
+  margin: 0 auto;
+  padding: 0 50Px; }
+
+header {
+  height: 260Px;
+  position: relative;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-image: url("../image/Header Background.jpg");
+  background-image: -webkit-image-set(url("../image/Header Background.jpg") 1x, url("../image/Header Background_2x.jpg") 2x, url("../image/Header Background_3x.jpg") 3x);
+  background-image: -moz-image-set(url("../image/Header Background.jpg") 1x, url("../image/Header Background_2x.jpg") 2x, url("../image/Header Background_3x.jpg") 3x);
+  background-image: -o-image-set(url("../image/Header Background.jpg") 1x, url("../image/Header Background_2x.jpg") 2x, url("../image/Header Background_3x.jpg") 3x);
+  background-image: -ms-image-set(url("../image/Header Background.jpg") 1x, url("../image/Header Background_2x.jpg") 2x, url("../image/Header Background_3x.jpg") 3x);
+  margin-bottom: 30Px; }
+  header .logo {
+    position: absolute;
+    left: 30Px;
+    margin-top: -57.5Px;
+    top: 50%;
+    width: 162Px;
+    height: 55Px; }
+  header nav {
+    position: absolute;
+    bottom: 0;
+    padding: 0 30Px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #E3E3E3;
+    border-bottom: 1Px solid #747474; }
+    header nav ul {
+      display: flex;
+      justify-content: space-between; }
+      header nav ul li {
+        line-height: 60Px; }
+        header nav ul li a {
+          color: #272727;
+          text-transform: uppercase;
+          text-decoration: none; }
+
+.promotional {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30Px; }
+  .promotional li a {
+    position: relative;
+    display: block;
+    text-decoration: none; }
+    .promotional li a .tooltip {
+      position: absolute;
+      height: 140Px;
+      width: 100%;
+      bottom: 0;
+      padding: 30Px;
+      box-sizing: border-box;
+      font-size: 2.143em;
+      line-height: 1em;
+      text-transform: uppercase;
+      background: rgba(39, 39, 39, 0.5);
+      color: #F2F2F2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around; }
+      .promotional li a .tooltip .click-here {
+        font-size: 1.57rem;
+        line-height: 1em;
+        color: #FF652F;
+        display: block; }
+        .promotional li a .tooltip .click-here:after {
+          content: '';
+          display: inline-block;
+          width: 15Px;
+          height: 15Px;
+          margin-left: 0.5em;
+          border-style: solid;
+          border-color: #FF652F;
+          border-width: 0 2Px 2Px 0;
+          transform: rotate(-45deg); }
+
+.brands ul {
+  display: flex;
+  justify-content: space-between; }
+
+/*# sourceMappingURL=style.css.map */
