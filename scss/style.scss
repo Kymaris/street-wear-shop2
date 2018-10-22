@@ -1,4 +1,3 @@
-//test;
 @import 'css-reset';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 $acent-color: #FF652F;
@@ -38,6 +37,7 @@ $standard-gap: 30Px;
 %home-page-block-header {
 	margin-bottom: $standard-gap;
 	border-bottom: 1Px solid $light-light-color;
+	padding-bottom: 10Px; //?
 }
 
 %home-page-block {
@@ -186,5 +186,69 @@ header {
 
 	.header {
 		@extend %home-page-block-header;
+
+		display: flex;
+		align-items: flex-end;
+
+		h2 {
+			padding-right: $standard-gap;
+		}
+
+		a {
+			font-size: 1.57rem;
+			line-height: 1.1em;
+			color: $acent-color;
+			text-decoration: none;
+
+			&:after {
+				content: '';
+				display: inline-block;
+				width: 15Px;
+				height: 15Px;
+				margin-left: 0.5em;
+				border-style: solid;
+				border-color: $acent-color;
+				border-width: 0 2Px 2Px 0;
+				transform: rotate(-45deg);
+			}
+		}
+	}
+
+	.items {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: $standard-gap;
+
+		.item {
+			border: 3Px solid $dark-color;
+			height: 400Px; // ???
+			background: antiquewhite;
+
+			.image {
+				position: relative;
+
+				span {
+					position: absolute;
+					display: block;
+					bottom: 0;
+					width: 100%;
+					padding: 15Px;
+					box-sizing: border-box;
+					background: $dark-color-half-oppacity;
+					font-size: 1.57rem;
+					line-height: 1em;
+					color: $acent-positive-color;
+				}
+			}
+
+			.price {
+				display: flex;
+				justify-content: space-between;
+				
+				span span {
+					border:1px solid red;
+				}
+			}
+		}
 	}
 }
