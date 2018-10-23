@@ -228,6 +228,11 @@ header {
 				position: relative;
 				border: 3Px solid $dark-color;
 
+				img {
+					width: 272Px;
+					height: 408Px;
+				}
+
 				span {
 					position: absolute;
 					display: block;
@@ -266,6 +271,11 @@ header {
 					font-weight: 600;
 					text-transform: uppercase;
 					padding: 5Px 50Px;
+				}
+				
+				button:hover {
+					background: $dark-color;
+					color: white;	
 				}
 			}
 		}

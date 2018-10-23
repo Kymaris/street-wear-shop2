@@ -203,6 +203,10 @@ header nav ul li a {
   position: relative;
   border: 3Px solid #272727;
 }
+.new-arrivals .items .item .image img {
+  width: 272Px;
+  height: 408Px;
+}
 .new-arrivals .items .item .image span {
   position: absolute;
   display: block;
@@ -237,6 +241,10 @@ header nav ul li a {
   font-weight: 600;
   text-transform: uppercase;
   padding: 5Px 50Px;
+}
+.new-arrivals .items .item .price button:hover {
+  background: #272727;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
