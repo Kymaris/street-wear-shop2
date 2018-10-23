@@ -198,12 +198,11 @@ header nav ul li a {
   grid-gap: 30Px;
 }
 .new-arrivals .items .item {
-  border: 3Px solid #272727;
-  height: 400Px;
-  background: antiquewhite;
+  color: #14A76C;
 }
 .new-arrivals .items .item .image {
   position: relative;
+  border: 3Px solid #272727;
 }
 .new-arrivals .items .item .image span {
   position: absolute;
@@ -215,14 +214,30 @@ header nav ul li a {
   background: rgba(39, 39, 39, 0.5);
   font-size: 1.57rem;
   line-height: 1em;
-  color: #14A76C;
 }
 .new-arrivals .items .item .price {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-top: 10Px;
+}
+.new-arrivals .items .item .price span {
+  font-size: 1.5em;
 }
 .new-arrivals .items .item .price span span {
-  border: 1px solid red;
+  font-size: 1.5em;
+  font-weight: 600;
+  padding-left: 5Px;
+}
+.new-arrivals .items .item .price button {
+  background: none;
+  color: #14A76C;
+  border: 2Px solid #272727;
+  border-radius: 5Px;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 5Px 50Px;
 }
 
 /*# sourceMappingURL=style.css.map */

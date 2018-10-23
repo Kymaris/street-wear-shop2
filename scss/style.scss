@@ -1,3 +1,4 @@
+//sass D:\street-wear-shop2\scss\style.scss D:\street-wear-shop2\css\style.css --watch
 @import 'css-reset';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 $acent-color: #FF652F;
@@ -220,12 +221,11 @@ header {
 		grid-gap: $standard-gap;
 
 		.item {
-			border: 3Px solid $dark-color;
-			height: 400Px; // ???
-			background: antiquewhite;
+			color: $acent-positive-color;
 
 			.image {
 				position: relative;
+				border: 3Px solid $dark-color;
 
 				span {
 					position: absolute;
@@ -237,16 +237,34 @@ header {
 					background: $dark-color-half-oppacity;
 					font-size: 1.57rem;
 					line-height: 1em;
-					color: $acent-positive-color;
 				}
 			}
 
 			.price {
 				display: flex;
 				justify-content: space-between;
+				align-items: center;
+				margin-top: 10Px;
 				
-				span span {
-					border:1px solid red;
+				span {
+					font-size: 1.5em;
+
+					span {
+						font-size: 1.5em;
+						font-weight: 600;
+						padding-left: 5Px;
+					}
+				}
+
+				button {
+					background: none;
+					color: $acent-positive-color;
+					border: 2Px solid $dark-color;
+					border-radius: 5Px;
+					font-size: 1.5em;
+					font-weight: 600;
+					text-transform: uppercase;
+					padding: 5Px 50Px;
 				}
 			}
 		}
