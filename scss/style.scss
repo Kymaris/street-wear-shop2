@@ -10,6 +10,8 @@ $dark-light-color: #747474;
 $light-color: #E3E3E3;
 $light-light-color: #F2F2F2;
 $standard-gap: 30Px;
+$nav-height: 60Px;
+$logo-height: 55Px;
 
 @mixin background-image-set($x1-img, $x2-img, $x3-img) {
 	background-image: url($x1-img); 
@@ -36,8 +38,8 @@ $standard-gap: 30Px;
 }
 
 %home-page-block-header {
-	margin-bottom: $standard-gap;
 	border-bottom: 1Px solid $light-light-color;
+	margin-bottom: $standard-gap;
 	padding-bottom: 10Px; //?
 }
 
@@ -59,15 +61,13 @@ body {
 }
 
 .site-column {
-	//max-width: 1200Px; ??
-	width: 1200Px;
+	max-width: 1200Px; 
+	min-width: 380Px;
 	margin: 0 auto;
-	//padding: 0 50Px; ??
+	padding: 0 50Px; 
 }
 
 header {
-	$nav-height: 60Px;
-
 	height: 260Px;
 	position: relative;
 	background-position: center top;
@@ -79,15 +79,13 @@ header {
 	);
 	margin-bottom: $standard-gap;
 
-	.logo {
-		$height: 55Px;
-		
+	.logo {	
 		position: absolute;
 		left: $standard-gap;
-		margin-top: -1*($height/2) - $nav-height/2;
+		margin-top: -1*($logo-height/2) - $nav-height/2;
 		top: 50%;
 		width: 162Px;
-		height: $height;
+		height: $logo-height;
 
 	}
 
@@ -103,6 +101,7 @@ header {
 		ul {
 			display: flex;
 			justify-content: space-between;
+			flex-wrap: wrap;
 
 			li {
 				line-height: $nav-height;
@@ -120,6 +119,7 @@ header {
 .promotional {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 	margin-bottom: $standard-gap;
 	@extend %home-page-block;
 
@@ -180,11 +180,13 @@ header {
 	ul {
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: wrap;
 	}
 }
 
 .new-arrivals {
 	@extend %home-page-block;
+	//display: none;
 
 	.header {
 		@extend %home-page-block-header;
@@ -217,12 +219,16 @@ header {
 	}
 
 	.items {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-gap: $standard-gap;
+		//display: grid;
+		//grid-template-columns: repeat(4, 1fr);
+		//grid-gap: $standard-gap;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
 
 		.item {
 			color: $acent-positive-color;
+			margin-bottom: $standard-gap;
 
 			.image {
 				position: relative;
@@ -230,7 +236,7 @@ header {
 
 				img {
 					width: 272Px;
-					height: 408Px;
+					height: 408Px; // width * 1.5
 				}
 
 				span {
@@ -279,5 +285,61 @@ header {
 				}
 			}
 		}
+	}
+}
+
+@media screen and (max-width: 1239Px) {
+	.promotional {
+		justify-content: space-around;
+		margin-bottom: 0;
+		padding-bottom: 0;
+		border-bottom: none;
+
+		li {
+			padding-bottom: 10px;
+		}
+	}
+	header {
+		margin-bottom: 10Px;
+	}
+	.brands
+	{
+		padding-bottom: 10Px;
+		margin-bottom: 10Px;
+
+		 h2 {
+			margin-bottom: 10Px;
+			//padding-bottom: 5Px;
+		 }
+	}
+	.new-arrivals .items {
+		justify-content: space-around;
+	}
+}
+@media screen and (max-width: 760Px) {
+	.site-column {
+		padding: 0;
+	}
+	header {
+		margin-bottom: 10Px;
+
+		nav ul {
+			justify-content: space-around;
+		}
+	}
+	.brands	 ul {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+@media screen and (max-width: 555Px) {
+	.new-arrivals .items .item .image img {
+		width: 500Px;
+		height: 750Px;
+	}
+}
+@media screen and (max-width: 436Px) {
+	header .logo {
+		margin-top: (-1*($logo-height/2) - $nav-height/2) - 30;
 	}
 }

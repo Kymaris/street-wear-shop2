@@ -50,8 +50,8 @@ table {
 }
 
 .new-arrivals .header, .brands h2 {
-  margin-bottom: 30Px;
   border-bottom: 1Px solid #F2F2F2;
+  margin-bottom: 30Px;
   padding-bottom: 10Px;
 }
 
@@ -72,8 +72,10 @@ body {
 }
 
 .site-column {
-  width: 1200Px;
+  max-width: 1200Px;
+  min-width: 380Px;
   margin: 0 auto;
+  padding: 0 50Px;
 }
 
 header {
@@ -108,6 +110,7 @@ header nav {
 header nav ul {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 header nav ul li {
   line-height: 60Px;
@@ -121,6 +124,7 @@ header nav ul li a {
 .promotional {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-bottom: 30Px;
 }
 .promotional li a {
@@ -165,6 +169,7 @@ header nav ul li a {
 .brands ul {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .new-arrivals .header {
@@ -192,12 +197,13 @@ header nav ul li a {
   transform: rotate(-45deg);
 }
 .new-arrivals .items {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 30Px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .new-arrivals .items .item {
   color: #14A76C;
+  margin-bottom: 30Px;
 }
 .new-arrivals .items .item .image {
   position: relative;
@@ -245,6 +251,62 @@ header nav ul li a {
 .new-arrivals .items .item .price button:hover {
   background: #272727;
   color: white;
+}
+
+@media screen and (max-width: 1239Px) {
+  .promotional {
+    justify-content: space-around;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .promotional li {
+    padding-bottom: 10px;
+  }
+
+  header {
+    margin-bottom: 10Px;
+  }
+
+  .brands {
+    padding-bottom: 10Px;
+    margin-bottom: 10Px;
+  }
+  .brands h2 {
+    margin-bottom: 10Px;
+  }
+
+  .new-arrivals .items {
+    justify-content: space-around;
+  }
+}
+@media screen and (max-width: 760Px) {
+  .site-column {
+    padding: 0;
+  }
+
+  header {
+    margin-bottom: 10Px;
+  }
+  header nav ul {
+    justify-content: space-around;
+  }
+
+  .brands ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 555Px) {
+  .new-arrivals .items .item .image img {
+    width: 500Px;
+    height: 750Px;
+  }
+}
+@media screen and (max-width: 436Px) {
+  header .logo {
+    margin-top: -87.5Px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
