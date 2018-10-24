@@ -52,7 +52,6 @@ table {
 .new-arrivals .header, .brands h2 {
   border-bottom: 1Px solid #F2F2F2;
   margin-bottom: 30Px;
-  padding-bottom: 10Px;
 }
 
 .new-arrivals, .brands, .promotional {
@@ -60,7 +59,14 @@ table {
   margin-bottom: 50Px;
   padding-bottom: 30Px;
 }
-.new-arrivals h2, .brands h2, .promotional h2 {
+
+.new-arrivals .items, .brands ul, .promotional, header nav ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.new-arrivals .header h2, .brands h2 {
   font-size: 3rem;
   font-weight: 300;
   color: #747474;
@@ -92,41 +98,30 @@ header {
 }
 header .logo {
   position: absolute;
-  left: 30Px;
-  margin-top: -57.5Px;
-  top: 50%;
   width: 162Px;
   height: 55Px;
+  left: 30Px;
+  top: 50%;
+  margin-top: -57.5Px;
 }
 header nav {
   position: absolute;
+  width: 100%;
   bottom: 0;
   padding: 0 30Px;
-  width: 100%;
   box-sizing: border-box;
   background: #E3E3E3;
   border-bottom: 1Px solid #747474;
 }
 header nav ul {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-header nav ul li {
   line-height: 60Px;
 }
 header nav ul li a {
   color: #272727;
-  text-transform: uppercase;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
-.promotional {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-bottom: 30Px;
-}
 .promotional li a {
   position: relative;
   display: block;
@@ -134,25 +129,25 @@ header nav ul li a {
 }
 .promotional li a .tooltip {
   position: absolute;
-  height: 140Px;
   width: 100%;
+  height: 140Px;
   bottom: 0;
   padding: 30Px;
   box-sizing: border-box;
+  color: #F2F2F2;
+  background: rgba(39, 39, 39, 0.5);
   font-size: 2.143em;
   line-height: 1em;
   text-transform: uppercase;
-  background: rgba(39, 39, 39, 0.5);
-  color: #F2F2F2;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 .promotional li a .tooltip .click-here {
+  display: block;
+  color: #FF652F;
   font-size: 1.57rem;
   line-height: 1em;
-  color: #FF652F;
-  display: block;
 }
 .promotional li a .tooltip .click-here:after {
   content: "";
@@ -161,15 +156,8 @@ header nav ul li a {
   height: 15Px;
   margin-left: 0.5em;
   border-style: solid;
-  border-color: #FF652F;
   border-width: 0 2Px 2Px 0;
   transform: rotate(-45deg);
-}
-
-.brands ul {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 .new-arrivals .header {
@@ -180,26 +168,20 @@ header nav ul li a {
   padding-right: 30Px;
 }
 .new-arrivals .header a {
+  color: #FF652F;
   font-size: 1.57rem;
   line-height: 1.1em;
-  color: #FF652F;
   text-decoration: none;
 }
 .new-arrivals .header a:after {
   content: "";
   display: inline-block;
-  width: 15Px;
-  height: 15Px;
+  width: 10Px;
+  height: 10Px;
   margin-left: 0.5em;
   border-style: solid;
-  border-color: #FF652F;
   border-width: 0 2Px 2Px 0;
   transform: rotate(-45deg);
-}
-.new-arrivals .items {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 .new-arrivals .items .item {
   color: #14A76C;
@@ -215,9 +197,9 @@ header nav ul li a {
 }
 .new-arrivals .items .item .image span {
   position: absolute;
-  display: block;
-  bottom: 0;
   width: 100%;
+  bottom: 0;
+  display: block;
   padding: 15Px;
   box-sizing: border-box;
   background: rgba(39, 39, 39, 0.5);
@@ -241,12 +223,12 @@ header nav ul li a {
 .new-arrivals .items .item .price button {
   background: none;
   color: #14A76C;
+  padding: 5Px 50Px;
   border: 2Px solid #272727;
   border-radius: 5Px;
   font-size: 1.5em;
   font-weight: 600;
   text-transform: uppercase;
-  padding: 5Px 50Px;
 }
 .new-arrivals .items .item .price button:hover {
   background: #272727;
@@ -299,8 +281,8 @@ header nav ul li a {
 }
 @media screen and (max-width: 555Px) {
   .new-arrivals .items .item .image img {
-    width: 500Px;
-    height: 750Px;
+    width: 374Px;
+    height: 561Px;
   }
 }
 @media screen and (max-width: 436Px) {
