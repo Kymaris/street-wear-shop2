@@ -60,7 +60,7 @@ table {
   padding-bottom: 30Px;
 }
 
-.new-arrivals .items, .brands ul, .promotional, header nav ul {
+.brands ul, header nav ul {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -79,7 +79,6 @@ body {
 
 .site-column {
   max-width: 1200Px;
-  min-width: 380Px;
   margin: 0 auto;
   padding: 0 50Px;
 }
@@ -122,12 +121,18 @@ header nav ul li a {
   text-transform: uppercase;
 }
 
-.promotional li a {
+.promotional {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10Px;
+}
+.promotional .item a {
   position: relative;
   display: block;
   text-decoration: none;
 }
-.promotional li a .tooltip {
+.promotional .item a .tooltip {
+  display: none !important;
   position: absolute;
   width: 100%;
   height: 140Px;
@@ -143,13 +148,13 @@ header nav ul li a {
   flex-direction: column;
   justify-content: space-around;
 }
-.promotional li a .tooltip .click-here {
+.promotional .item a .tooltip .click-here {
   display: block;
   color: #FF652F;
   font-size: 1.57rem;
   line-height: 1em;
 }
-.promotional li a .tooltip .click-here:after {
+.promotional .item a .tooltip .click-here:after {
   content: "";
   display: inline-block;
   width: 15Px;
@@ -158,6 +163,10 @@ header nav ul li a {
   border-style: solid;
   border-width: 0 2Px 2Px 0;
   transform: rotate(-45deg);
+}
+.promotional .item a img {
+  width: 100%;
+  object-fit: cover;
 }
 
 .new-arrivals .header {
@@ -183,19 +192,23 @@ header nav ul li a {
   border-width: 0 2Px 2Px 0;
   transform: rotate(-45deg);
 }
-.new-arrivals .items .item {
-  color: #14A76C;
-  margin-bottom: 30Px;
+.new-arrivals .goods {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30Px;
 }
-.new-arrivals .items .item .image {
+.new-arrivals .goods .item {
+  color: #14A76C;
+}
+.new-arrivals .goods .item .image {
   position: relative;
   border: 3Px solid #272727;
 }
-.new-arrivals .items .item .image img {
-  width: 272Px;
-  height: 408Px;
+.new-arrivals .goods .item .image img {
+  object-fit: cover;
+  width: 100%;
 }
-.new-arrivals .items .item .image span {
+.new-arrivals .goods .item .image span {
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -206,88 +219,57 @@ header nav ul li a {
   font-size: 1.57rem;
   line-height: 1em;
 }
-.new-arrivals .items .item .price {
+.new-arrivals .goods .item .price {
+  display: none !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10Px;
 }
-.new-arrivals .items .item .price span {
+.new-arrivals .goods .item .price span {
   font-size: 1.5em;
 }
-.new-arrivals .items .item .price span span {
+.new-arrivals .goods .item .price span span {
   font-size: 1.5em;
   font-weight: 600;
   padding-left: 5Px;
 }
-.new-arrivals .items .item .price button {
+.new-arrivals .goods .item .price button {
   background: none;
   color: #14A76C;
-  padding: 5Px 50Px;
+  padding: 5Px 35Px;
   border: 2Px solid #272727;
   border-radius: 5Px;
   font-size: 1.5em;
   font-weight: 600;
   text-transform: uppercase;
 }
-.new-arrivals .items .item .price button:hover {
+.new-arrivals .goods .item .price button:hover {
   background: #272727;
   color: white;
 }
 
-@media screen and (max-width: 1239Px) {
-  .promotional {
-    justify-content: space-around;
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-  }
-  .promotional li {
-    padding-bottom: 10px;
-  }
-
-  header {
-    margin-bottom: 10Px;
-  }
-
-  .brands {
-    padding-bottom: 10Px;
-    margin-bottom: 10Px;
-  }
-  .brands h2 {
-    margin-bottom: 10Px;
-  }
-
-  .new-arrivals .items {
-    justify-content: space-around;
+@media screen and (max-width: 900Px) {
+  .new-arrivals .goods {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
-@media screen and (max-width: 760Px) {
+@media screen and (max-width: 600Px) {
   .site-column {
-    padding: 0;
+    padding: 0 25Px;
   }
 
-  header {
-    margin-bottom: 10Px;
+  .new-arrivals .goods {
+    grid-template-columns: repeat(2, 1fr);
   }
-  header nav ul {
-    justify-content: space-around;
+}
+@media screen and (max-width: 300Px) {
+  .site-column {
+    padding: 0 30Px;
   }
 
-  .brands ul {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-@media screen and (max-width: 555Px) {
-  .new-arrivals .items .item .image img {
-    width: 374Px;
-    height: 561Px;
-  }
-}
-@media screen and (max-width: 436Px) {
-  header .logo {
-    margin-top: -87.5Px;
+  .new-arrivals .goods {
+    grid-template-columns: 1fr;
   }
 }
 

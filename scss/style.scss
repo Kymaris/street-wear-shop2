@@ -78,7 +78,7 @@ body {
 
 .site-column {
 	max-width: 1200Px; 
-	min-width: 380Px;
+	//min-width: 380Px;
 	margin: 0 auto;
 	padding: 0 50Px; 
 }
@@ -127,16 +127,19 @@ header {
 }
 
 .promotional {
-	@extend %standard-flex;
+	//@extend %standard-flex;
 	@extend %home-page-block;
-	//margin-bottom: $standard-gap;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10Px;
 
-	li a {
+	.item a {
 		position: relative;
 		display: block;
 		text-decoration: none;
 
 		.tooltip{
+			display: none !important;
 			position: absolute;
 			width: 100%;
 			height: 140Px;
@@ -161,6 +164,11 @@ header {
 					@include after-arrow(15Px);
 				}
 			}
+		}
+
+		img {
+			width: 100%;
+			object-fit: cover;
 		}
 	}
 }
@@ -202,20 +210,24 @@ header {
 		}
 	}
 
-	.items {
-		@extend %standard-flex;
+	.goods {
+		//@extend %standard-flex;
+		display: grid;
+	 	grid-template-columns: repeat(4, 1fr);
+		grid-gap: $standard-gap;
 
 		.item {
 			color: $acent-positive-color;
-			margin-bottom: $standard-gap;
 
 			.image {
 				position: relative;
 				border: 3Px solid $dark-color;
 
 				img {
-					width: 272Px;
-					height: 408Px; // width * 1.5
+					object-fit: cover;
+					width: 100%;	
+					//width: 272Px;
+					//height: 408Px; // width * 1.5
 				}
 
 				span {
@@ -232,6 +244,7 @@ header {
 			}
 
 			.price {
+				display: none !important;
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
@@ -250,7 +263,7 @@ header {
 				button {
 					background: none;
 					color: $acent-positive-color;
-					padding: 5Px 50Px;
+					padding: 5Px 35Px;
 					border: 2Px solid $dark-color;
 					border-radius: 5Px;
 					font-size: 1.5em;
@@ -267,58 +280,28 @@ header {
 	}
 }
 
-@media screen and (max-width: 1239Px) {
-	.promotional {
-		justify-content: space-around;
-		margin-bottom: 0;
-		padding-bottom: 0;
-		border-bottom: none;
-
-		li {
-			padding-bottom: 10px;
-		}
-	}
-	header {
-		margin-bottom: 10Px;
-	}
-	.brands
-	{
-		padding-bottom: 10Px;
-		margin-bottom: 10Px;
-
-		 h2 {
-			margin-bottom: 10Px;
-			//padding-bottom: 5Px;
-		 }
-	}
-	.new-arrivals .items {
-		justify-content: space-around;
+@media screen and (max-width: 900Px) {
+	.new-arrivals .goods {
+		grid-template-columns: repeat(3, 1fr);
 	}
 }
-@media screen and (max-width: 760Px) {
+
+@media screen and (max-width: 600Px) {
 	.site-column {
-		padding: 0;
+		padding: 0 25Px;
 	}
-	header {
-		margin-bottom: 10Px;
 
-		nav ul {
-			justify-content: space-around;
-		}
-	}
-	.brands	 ul {
-		flex-direction: column;
-		align-items: center;
+	.new-arrivals .goods {
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
-@media screen and (max-width: 555Px) {
-	.new-arrivals .items .item .image img {
-		width: 374Px;
-		height: 561Px;
+
+@media screen and (max-width: 300Px) {
+	.site-column {
+		padding: 0 $standard-gap;
 	}
-}
-@media screen and (max-width: 436Px) {
-	header .logo {
-		margin-top: (-1*($logo-height/2) - $nav-height/2) - 30;
+
+	.new-arrivals .goods {
+		grid-template-columns: 1fr;
 	}
 }
