@@ -84,35 +84,75 @@ body {
 }
 
 header {
-	height: 260Px;
-	position: relative;
-	background-position: center top;
-	background-repeat: no-repeat;
-	@include background-image-set(
-		'../image/Header\ Background.jpg',
-		'../image/Header\ Background_2x.jpg',
-		'../image/Header\ Background_3x.jpg'
-	);
+
 	margin-bottom: $standard-gap;
 
-	.logo {	
-		position: absolute;
-		width: 162Px;
-		height: $logo-height;
-		left: $standard-gap;
-		top: 50%;
-		margin-top: -1*($logo-height/2) - $nav-height/2;
+	.head-banner {
+		height: 200Px;
+		position: relative;
+		background-position: center top;
+		background-repeat: no-repeat;
+		@include background-image-set(
+			'../image/Header\ Background.jpg',
+			'../image/Header\ Background_2x.jpg',
+			'../image/Header\ Background_3x.jpg'
+		);
+
+		.logo {	
+			position: absolute;
+			width: 162Px;
+			height: $logo-height;
+			left: $standard-gap;
+			top: 50%;
+			margin-top: -1*($logo-height/2) - $nav-height/2;
+		}
 	}
 
 	nav {
-		position: absolute;
-		width: 100%;
-		bottom: 0;
-		padding: 0 30Px;
+		padding: 0 $standard-gap;
 		box-sizing: border-box;
 		background: $light-color;
 		border-bottom: 1Px solid $dark-light-color;
 
+		$sandwitch-padding: 10Px;
+		%sandwich-line {
+			display: block;
+			position: absolute;
+			width: $nav-height - 2 * $sandwitch-padding;
+			height: 2Px;
+			background: $dark-color;
+			border-radius: 2Px;
+		}
+
+		.sandwich {
+			display: none;
+			width: $nav-height;
+			height: $nav-height;
+			position: absolute;
+			background: transparent;
+			padding: $sandwitch-padding;
+			box-sizing: border-box;
+			border: none;
+
+			span {
+				@extend %sandwich-line;
+				top: 50%;
+				margin-top: -1Px;
+			}
+
+			&:after {
+				content: '';
+				bottom: 2 * $sandwitch-padding;
+				@extend %sandwich-line;
+			}
+
+			&:before {
+				content: '';
+				top: 2 * $sandwitch-padding;
+				@extend %sandwich-line;
+			}
+
+		}
 		ul {
 			@extend %standard-flex;
 			line-height: $nav-height;
@@ -139,7 +179,6 @@ header {
 		text-decoration: none;
 
 		.tooltip{
-			display: none !important;
 			position: absolute;
 			width: 100%;
 			height: 140Px;
@@ -244,7 +283,6 @@ header {
 			}
 
 			.price {
-				display: none !important;
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
@@ -280,6 +318,78 @@ header {
 	}
 }
 
+.popup-nav {
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: $light-color;
+	width: 100%;
+	height: 100%;
+	display: none;
+	justify-content: center;
+	
+
+
+	.close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: $standard-gap;
+		padding: $standard-gap / 2;
+		background: transparent;
+		border: none;
+		font-size: 5em;
+		display: block;
+		width: 60Px;
+		height: 60Px;
+		line-height: 60Px;
+	}
+
+	ul {
+		line-height: $nav-height;
+
+		li a {
+			color: $dark-color;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 2em;
+		}
+	}
+}
+
+@media screen and (max-width: 1000Px) {
+	.promotional {
+		grid-template-columns: 1fr;
+
+		.item {
+			height: 200Px;
+			overflow: hidden;
+
+			a {
+				display: flex;
+				height: 100%;
+
+				.tooltip {
+					flex-direction: row;
+					justify-content: space-between;
+					padding: $standard-gap / 2;
+					height: auto;
+					font-size: 1.07em;
+
+					.click-here {
+						font-size: 0.78rem;
+						&:after {
+							@include after-arrow(10Px); 
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 @media screen and (max-width: 900Px) {
 	.new-arrivals .goods {
 		grid-template-columns: repeat(3, 1fr);
@@ -287,12 +397,24 @@ header {
 }
 
 @media screen and (max-width: 600Px) {
+	header nav ul {
+		display: none;
+	}
+
+	header nav .sandwich {
+		display: block;
+		position: relative;
+	}
+
 	.site-column {
 		padding: 0 25Px;
 	}
 
 	.new-arrivals .goods {
 		grid-template-columns: repeat(2, 1fr);
+	}
+	.popup-nav.open {
+		display: flex;
 	}
 }
 

@@ -5,23 +5,29 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Street style wearshop</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="js/function.js"></script>
 	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 </head>
 <body>
 	<div class="site-column">
 		<header>
-			<img class="logo" alt="Street style wearshop" src="image/Logo.svg"/>
-			<nav>
-				<ul>
-					<li><a href="#">New</a></li>
-					<li><a href="#">Boys</a></li>
-					<li><a href="#">Girls</a></li>
-					<li><a href="#">Shoes</a></li>
-					<li><a href="#">Accessories</a></li>
-					<li><a href="#">Streetwear</a></li>
-					<li><a href="#">Jackets</a></li>
-				</ul>
-			</nav>
+			<div class="head-banner">
+				<img class="logo" alt="Street style wearshop" src="image/Logo.svg"/>
+			</div>
+			<div class="sticky-wrapper">
+				<nav>
+					<button class="sandwich"><span></span></button>
+					<ul>
+						<li><a href="#">New</a></li>
+						<li><a href="#">Boys</a></li>
+						<li><a href="#">Girls</a></li>
+						<li><a href="#">Shoes</a></li>
+						<li><a href="#">Accessories</a></li>
+						<li><a href="#">Streetwear</a></li>
+						<li><a href="#">Jackets</a></li>
+					</ul>
+				</nav>
+			</div>
 		</header>
 		<main>
 			<ul class="promotional">
@@ -130,7 +136,7 @@
 							<span>Price: <span>$15</span></span>
 							<button>Buy</button>
 						</div>
-					</div>					
+					</div>
 					<div class="item">
 						<div class="image">
 							<img src="image/goods/thrasher-flame-hoodie-black-1.1506662827.jpg"/>
@@ -144,6 +150,20 @@
 				</div>
 			</div>
 		</main>
+	</div>
+	<div class="popup-nav">
+		<nav>
+			<button class="close">✕</button>
+			<ul>
+				<li><a href="#">New</a></li>
+				<li><a href="#">Boys</a></li>
+				<li><a href="#">Girls</a></li>
+				<li><a href="#">Shoes</a></li>
+				<li><a href="#">Accessories</a></li>
+				<li><a href="#">Streetwear</a></li>
+				<li><a href="#">Jackets</a></li>
+			</ul>
+		</nav>
 	</div>
 </body>
 </html>
