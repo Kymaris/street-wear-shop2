@@ -103,7 +103,6 @@ header .head-banner {
 }
 header .head-banner .logo {
   position: absolute;
-  width: 162Px;
   height: 55Px;
   left: 30Px;
   top: 50%;
@@ -334,10 +333,10 @@ header nav ul li a {
     justify-content: space-between;
     padding: 15Px;
     height: auto;
-    font-size: 1.07em;
+    font-size: 1rem;
   }
   .promotional .item a .tooltip .click-here {
-    font-size: 0.78rem;
+    font-size: 1rem;
   }
   .promotional .item a .tooltip .click-here:after {
     content: "";
@@ -348,6 +347,24 @@ header nav ul li a {
     border-style: solid;
     border-width: 0 2Px 2Px 0;
     transform: rotate(-45deg);
+  }
+
+  .new-arrivals .goods .item .image span {
+    font-size: 1.2rem;
+  }
+
+  .new-arrivals .goods .item .price button {
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 5Px 0;
+  }
+  .new-arrivals .goods .item .price span {
+    font-size: 1.2rem;
+    width: 100%;
+  }
+  .new-arrivals .goods .item .price span span {
+    font-size: 1.2em;
+    padding: 0;
   }
 }
 @media screen and (max-width: 900Px) {
@@ -378,15 +395,6 @@ header nav ul li a {
 
   .popup-nav.open {
     display: flex;
-  }
-}
-@media screen and (max-width: 300Px) {
-  .site-column {
-    padding: 0 30Px;
-  }
-
-  .new-arrivals .goods {
-    grid-template-columns: 1fr;
   }
 }
 

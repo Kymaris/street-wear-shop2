@@ -24,9 +24,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		{
 			var logo = document.getElementsByClassName("logo")[0]
 			var cs = getComputedStyle(logo)
+			logo.style.height = "60Px"
 			logo.style.top = cs.top.replace("px","") * 2 + "px"
-			logo.style.marginTop = "2Px"
-			sticky.getElementsByTagName("ul")[0].style.marginLeft = "190Px"
+			logo.style.left = "0Px"
+			logo.style.marginTop = "0Px"
+			sticky.getElementsByTagName("ul")[0].style.marginLeft = "177Px"
 			scrollOpen = true
 			scrollClose = false
 		} 

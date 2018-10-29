@@ -106,7 +106,6 @@ header {
 			$logo-height: 55Px;
 
 			position: absolute;
-			width: 162Px;
 			height: $logo-height;
 			left: $standard-gap;
 			top: 50%;
@@ -381,15 +380,36 @@ header {
 					justify-content: space-between;
 					padding: $standard-gap / 2;
 					height: auto;
-					font-size: 1.07em;
+					font-size: 1rem;
 
 					.click-here {
-						font-size: 0.78rem;
+						font-size: 1rem;
 						&:after {
 							@include after-arrow(10Px); 
 						}
 					}
 				}
+			}
+		}
+	}
+
+	.new-arrivals .goods .item .image span {
+		font-size: 1.2rem;
+	}
+
+	.new-arrivals .goods .item .price { 
+		button {
+			font-size: 1.2rem;
+			width: 100%;
+			padding: 5Px 0;
+		}
+		span {
+			font-size: 1.2rem;
+			width: 100%;
+
+			span {
+				font-size: 1.2em;
+				padding: 0;
 			}
 		}
 	}
@@ -428,12 +448,3 @@ header {
 	}
 }
 
-@media screen and (max-width: 300Px) {
-	.site-column {
-		padding: 0 $standard-gap;
-	}
-
-	.new-arrivals .goods {
-		grid-template-columns: 1fr;
-	}
-}
