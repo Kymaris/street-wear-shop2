@@ -7,17 +7,38 @@ document.addEventListener("DOMContentLoaded", function() {
 		popup = popups[0]
 	sticky.addEventListener("click", function() {
 		popup.className += " open"
+		document.getElementsByTagName("header")[0].style.position = "unset"
 	}) 
 	var close = popup.getElementsByClassName("close")
 	if (!close.length)
 		return
 	close[0].addEventListener("click", function() {
 		popup.className = popup.className.replace(" open", "")
+		document.getElementsByTagName("header")[0].style = ""
 	})
-	var offsetTop;
-	window.addEventListener('scroll', function() { 
-		if (window.scrollY >= (offsetTop || (offsetTop = sticky.offsetTop)))
-			console.log(window.scrollY)
+	var offsetTop,
+		scrollOpen,
+		scrollClose
+	window.addEventListener('scroll', function() { 	
+		if (!scrollOpen && window.scrollY >= (offsetTop || (offsetTop = sticky.offsetTop)))
+		{
+			var logo = document.getElementsByClassName("logo")[0]
+			var cs = getComputedStyle(logo)
+			logo.style.top = cs.top.replace("px","") * 2 + "px"
+			logo.style.marginTop = "2Px"
+			sticky.getElementsByTagName("ul")[0].style.marginLeft = "190Px"
+			scrollOpen = true
+			scrollClose = false
+		} 
+		if (!scrollClose && window.scrollY < (offsetTop || (offsetTop = sticky.offsetTop)) / 2)
+		{
+			var logo = document.getElementsByClassName("logo")[0]
+			var cs = getComputedStyle(logo)
+			logo.style = ""
+			sticky.getElementsByTagName("ul")[0].style = ""
+			scrollClose = true
+			scrollOpen = false
+		}
 	})
 })
 

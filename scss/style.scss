@@ -11,7 +11,7 @@ $light-color: #E3E3E3;
 $light-light-color: #F2F2F2;
 $standard-gap: 30Px;
 $nav-height: 60Px;
-$logo-height: 55Px;
+
 
 @mixin background-image-set($x1-img, $x2-img, $x3-img) {
 	background-image: url($x1-img); 
@@ -78,18 +78,22 @@ body {
 
 .site-column {
 	max-width: 1200Px; 
-	//min-width: 380Px;
+	min-width: 380Px;
 	margin: 0 auto;
 	padding: 0 50Px; 
 }
 
 header {
+	$head-banner-height: 200Px;
 
+	position: sticky;
+	top: -$head-banner-height;
+	z-index: 1;
 	margin-bottom: $standard-gap;
 
 	.head-banner {
-		height: 200Px;
 		position: relative;
+		height: $head-banner-height;
 		background-position: center top;
 		background-repeat: no-repeat;
 		@include background-image-set(
@@ -99,12 +103,15 @@ header {
 		);
 
 		.logo {	
+			$logo-height: 55Px;
+
 			position: absolute;
 			width: 162Px;
 			height: $logo-height;
 			left: $standard-gap;
 			top: 50%;
 			margin-top: -1*($logo-height/2) - $nav-height/2;
+			transition: .5s ease-in-out;
 		}
 	}
 
@@ -113,6 +120,7 @@ header {
 		box-sizing: border-box;
 		background: $light-color;
 		border-bottom: 1Px solid $dark-light-color;
+		display: flex;
 
 		$sandwitch-padding: 10Px;
 		%sandwich-line {
@@ -153,9 +161,12 @@ header {
 			}
 
 		}
+
 		ul {
+			width: 100%;
 			@extend %standard-flex;
 			line-height: $nav-height;
+			transition: .5s ease-in-out;
 
 			li a {
 				color: $dark-color;
@@ -167,7 +178,6 @@ header {
 }
 
 .promotional {
-	//@extend %standard-flex;
 	@extend %home-page-block;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -199,6 +209,7 @@ header {
 				color: $acent-color;
 				font-size:1.57rem;
 				line-height: 1em;
+
 				&:after {
 					@include after-arrow(15Px);
 				}
@@ -250,7 +261,6 @@ header {
 	}
 
 	.goods {
-		//@extend %standard-flex;
 		display: grid;
 	 	grid-template-columns: repeat(4, 1fr);
 		grid-gap: $standard-gap;
@@ -329,20 +339,15 @@ header {
 	display: none;
 	justify-content: center;
 	
-
-
 	.close {
 		position: absolute;
 		top: 0;
 		right: 0;
 		margin: $standard-gap;
-		padding: $standard-gap / 2;
+		padding: 0;
 		background: transparent;
 		border: none;
 		font-size: 5em;
-		display: block;
-		width: 60Px;
-		height: 60Px;
 		line-height: 60Px;
 	}
 
@@ -397,13 +402,18 @@ header {
 }
 
 @media screen and (max-width: 600Px) {
-	header nav ul {
-		display: none;
-	}
+	header nav {
+		justify-content: flex-end;
+		padding: 0 $standard-gap / 2;
+	
+		ul {
+			display: none;
+		}
 
-	header nav .sandwich {
-		display: block;
-		position: relative;
+		.sandwich {
+			display: block;
+			position: relative;
+		}
 	}
 
 	.site-column {
