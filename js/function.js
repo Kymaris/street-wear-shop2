@@ -1,20 +1,17 @@
 document.addEventListener("DOMContentLoaded", function() {
-	var stickyWrappers = document.getElementsByClassName("sticky-wrapper"),
-		popups = document.getElementsByClassName("popup-nav")
-	if (!stickyWrappers.length || !popups.length)
-		throw new Error("Not found stickyWrappers or popups")
-	var sticky = stickyWrappers[0],
-		popup = popups[0]
+	var sticky = document.getElementsByClassName("sticky-wrapper")[0],
+		popup = document.getElementsByClassName("popup-nav")[0],
+		header = document.getElementsByTagName("header")[0],
+		close = popup.getElementsByClassName("close")[0]
+	if (!sticky || !popup || !header || !close)
+		return;
 	sticky.addEventListener("click", function() {
 		popup.className += " open"
-		document.getElementsByTagName("header")[0].style.position = "unset"
+		header.style.position = "unset"
 	}) 
-	var close = popup.getElementsByClassName("close")
-	if (!close.length)
-		return
-	close[0].addEventListener("click", function() {
+	close.addEventListener("click", function() {
 		popup.className = popup.className.replace(" open", "")
-		document.getElementsByTagName("header")[0].style = ""
+		header.style = ""
 	})
 	var offsetTop,
 		scrollOpen,
@@ -23,12 +20,14 @@ document.addEventListener("DOMContentLoaded", function() {
 		if (!scrollOpen && window.scrollY >= (offsetTop || (offsetTop = sticky.offsetTop)))
 		{
 			var logo = document.getElementsByClassName("logo")[0]
+			//#region Change style
 			var cs = getComputedStyle(logo)
 			logo.style.height = "60Px"
 			logo.style.top = cs.top.replace("px","") * 2 + "px"
 			logo.style.left = "0Px"
 			logo.style.marginTop = "0Px"
 			sticky.getElementsByTagName("ul")[0].style.marginLeft = "177Px"
+			//#endregion
 			scrollOpen = true
 			scrollClose = false
 		} 
@@ -42,5 +41,15 @@ document.addEventListener("DOMContentLoaded", function() {
 			scrollOpen = false
 		}
 	})
+
+	let promise = new Promise((resolve, reject) => {
+		setTimeout(() => resolve("result"), 4000)
+		setTimeout(() => reject(new Error("wtf")), 3000)
+	})
+
+	promise.then(
+		result => alert("Fulfilled " + result),
+		error => alert("Rejected " + error)
+	)
 })
 
